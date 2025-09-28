@@ -1,0 +1,357 @@
+:root {
+    /* Light Theme (default) */
+    --primary-color: #bdab74;
+    --text-color: #585448;
+    --text-color-2: #ffffff;
+    --background-color: linear-gradient(135deg, #fffbef 0%, #fff5de 100%);
+    --card-bg: #fffbf1;
+    --card-hover-bg: #fff8e6;
+    --toggle-bg: #f0e6d2;
+    --toggle-circle: #ffffff;
+    --header-bg: rgba(255, 251, 239, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --primary-color: #e6c786;
+    --text-color: #d1d1d1;
+    --text-color-2: #ffffff;
+    --background-color: linear-gradient(135deg, #161616 0%, #292929 100%);
+    --card-bg: #272727;
+    --card-hover-bg: #3b3b3b;
+    --toggle-bg: #4a4a4a;
+    --toggle-circle: #e6c786;
+    --header-bg: rgba(22, 22, 22, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+::selection {
+  background: var(--primary-color); /* background highlight color */
+  color: var(--text-color-2);      /* text color when selected */
+}
+
+#toggle {
+  -webkit-tap-highlight-color: transparent; /* removes blue highlight */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent; /* removes blue highlight */
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+header {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 30px;
+}
+
+.logo {
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 1;
+  background: var(--primary-color);
+  -webkit-mask: url("./tjlogo.png") center/contain no-repeat;
+  mask: url("./tjlogo.png") center/contain no-repeat;
+}
+
+.logo img {
+  display: none;
+}
+
+.logo-hud {
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 2 / 1;
+  background: var(--primary-color);
+  -webkit-mask: url("./Hudlogo.png") center/contain no-repeat;
+  mask: url("./Hudlogo.png") center/contain no-repeat;
+}
+
+.logo-hud img {
+  display: none;
+}
+
+.logo-container .hud-p {
+    font-size: 1.0rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.0rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo h2 {
+    font-family: "tajawal", sans-serif; /* Arabic */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.logo-container p {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    color: var(--text-color);
+    font-size: 18px;
+    margin-top: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.location-card {
+    background: var(--card-bg);
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #bdab7446;
+}
+
+.location-card.active {
+    box-shadow: 0 6px 20px rgba(230, 199, 134, 0.2);
+    border-color: var(--primary-color);
+}
+
+.location-header {
+    padding: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+}
+
+.location-header:hover {
+    background: var(--card-hover-bg);
+}
+
+.location-title {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.location-title span {
+    font-family: 'Tajawal', sans-serif;
+    /* Arabic */
+    font-weight: 100;
+    direction: rtl;
+}
+
+.location-address span {
+    font-family: 'Tajawal', sans-serif;
+    /* Arabic */
+    font-weight: 100;
+    direction: rtl;
+}
+
+.location-address {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-top: 6px;
+}
+
+.dropdown-icon {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+    font-size: 20px;
+}
+
+.location-card.active .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.location-card.active .dropdown-content {
+    max-height: 1000px;
+}
+
+.map-container {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.social-links {
+    padding: 25px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--text-color-2);
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 50px;
+    color: var(--text-color);
+    font-size: 16px;
+    border-top: 1px solid var(--primary-color);
+}
+
+.footer-text {
+    color: var(--primary-color);
+    margin-top: 10px;
+}
+
+.line{
+    border-top: 1px solid var(--primary-color);
+    margin: 50px;
+}
+
+@media (max-width: 768px) {
+
+    .location-title {
+        font-size: 18px;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+
+    .social-links {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+
+    .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .map-container {
+        height: 200px;
+    }
+}
+
+
+
+/* Toggle Button */
+#toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #333;
+  position: absolute;
+  top: 196px;
+  right: 50%;
+  transform: translateX(30px);
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Making a dot switch inside the Toggle Button */
+#toggle::before {
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  content: "\f1d1"; /* Bootstrap sun icon */
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #EEE;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  font-family: "bootstrap-icons";
+  font-size: 18px;
+  color: var(--text-color);
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in;
+}
+
+/* Changing toggle button background when checked */
+#toggle:checked {
+  background: var(--primary-color);
+}
+
+/* Changing dot switch color and moving to the right side when checked */
+#toggle:checked::before {
+  background: #333;
+  left: 32px;
+  content: "\F494"; /* Bootstrap moon icon */
+  color: var(--primary-color);
+}
