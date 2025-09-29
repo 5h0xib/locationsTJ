@@ -146,7 +146,7 @@ h1 {
 .location-card {
     background: var(--card-bg);
     border-radius: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.116);
     margin-bottom: 20px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -165,10 +165,11 @@ h1 {
     justify-content: space-between;
     align-items: center;
     background: var(--card-bg);
+    transition: ease-in-out 0.3s;
 }
 
-.location-header:hover {
-    background: var(--card-hover-bg);
+.location-card:hover {
+    transform: translateY(-3px);
 }
 
 .location-title {
@@ -354,4 +355,42 @@ footer {
   left: 32px;
   content: "\F494"; /* Bootstrap moon icon */
   color: var(--primary-color);
+}
+
+
+
+
+
+/* SHOP BUTTON */
+
+.shop-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.shop-div p {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.shop-btn {
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 15px 30px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 13px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.082);
+    transition: all 0.3s ease;
+}
+
+.shop-btn:hover {
+    background: var(--primary-color);
+    color: var(--text-color-2);
 }
